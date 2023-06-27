@@ -1,13 +1,12 @@
 /*Imports*/
-const mongoose = require("mongoose");
-const uuid = require("uuid");
+const { Schema, model } = require("mongoose");
 
 /*Modelo del Producto*/
-const OrderSchema = new mongoose.Schema(
+const OrderSchema = new Schema(
     {
-        _id      : { type : uuid.v4().toString() },
+        _id      : { type : Schema.Types.UUID },
         title    : { type : String },
-        image    : { type : Strign },
+        image    : { type : String },
         amount   : { type : Number },
         price    : { type : Number },
         subTotal : { type : Number }
@@ -18,4 +17,4 @@ const OrderSchema = new mongoose.Schema(
     }
 )
 /*Exportar el modelo para la DB*/
-module.exports = mongoose.model("order", OrderSchema);
+module.exports = model("order", OrderSchema);
