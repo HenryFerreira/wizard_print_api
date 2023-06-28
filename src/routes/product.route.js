@@ -1,13 +1,17 @@
 /*Imports*/
 const express = require("express");
+const { getProducts, getProductByID, getProductByCategory, createProduct, updateProduct, deleteProduct } = require("../controllers/product.controller");
+const uploadMiddleware = require("../utils/handleStorage");
 const router = express.Router();
 
-router.get("/product", (req, res) => {
-    
-    const data = ["hola", "mundo"]
-    
-    res.send({data})
-})
+
+
+router.get("/", getProducts)
+router.get("/:id", getProductByID)
+router.get("/category/:category", getProductByCategory)
+router.post("/", uploadMiddleware.single("myfile"), createProduct)
+router.put("/:id", updateProduct)
+router.get("/:id", deleteProduct)
 
 
 /*Exportar la Ruta del Modelo*/
