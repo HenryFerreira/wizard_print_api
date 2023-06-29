@@ -29,6 +29,12 @@ const createOrder = async (req, res) => {
     res.send({data})
 };
 
+const createOrderByRaw = async (req, res) => {
+    const { body } = req
+    const data = await orderModel.create(body);
+    res.send({data})
+};
+
 //Métodos[PUT]
 const updateOrder = async (req, res) => {
     const { id } = req.params
@@ -59,6 +65,7 @@ module.exports = {
     getOrderByID,
     getOrders,
     createOrder,
+    createOrderByRaw,
     updateOrder,
     deleteOrder
 };
