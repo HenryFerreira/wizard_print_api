@@ -7,7 +7,7 @@ const app = express();
 
 
 /* Uso de la APP */
-app.use(cors());//Para que la APP no tenga problema de CORS
+app.use(cors({origin: "*"}));//Para que la APP no tenga problema de CORS
 app.use(express.json());//Para que pueda utilizar JSON la APP
 app.use(express.static("src/storage"))
 
