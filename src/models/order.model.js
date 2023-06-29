@@ -4,24 +4,12 @@ const mongoose = require("mongoose");
 /*Modelo del Producto*/
 const OrderSchema = new mongoose.Schema(
     {
-        title: {
-            type : String,
-        },
-        imageName: {
-            type : String,
-        },
-        image: {
-            type : String,
-        },
-        amount: {
-            type : Number,
-        },
-        price: {
-            type : Number,
-        },
-        subTotal: {
-            type : Number,
-        }
+        title: { type: String, },
+        imageName: { type: String, },
+        image: { type: String, },
+        amount: { type: Number, },
+        price: { type: Number, },
+        subTotal: { type: Number, }
     },
     {
         timestamps: true,

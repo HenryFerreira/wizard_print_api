@@ -4,21 +4,11 @@ const mongoose = require("mongoose");
 /*Modelo del Producto*/
 const ProductSchema = new mongoose.Schema(
     {
-        title: { 
-            type : String,
-        },
-        imageName: { 
-            type : String,
-        },
-        image: { 
-            type : String,
-        },
-        category: {
-            type : String,
-        },
-        price: { 
-            type : Number,
-        }
+        title: { type: String, },
+        imageName: { type: String, },
+        image: { type: String, },
+        category: { type: String, },
+        price: { type: Number, }
     },
     {
         timestamps: true,
