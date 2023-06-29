@@ -1,4 +1,5 @@
 const { productModel } = require("../models");
+const PUBLIC_URL = process.env.PUBLIC_URL;
 
 //Métodos[GET]
 const getProductByID = async ({ params }, res) => {
@@ -17,19 +18,14 @@ const getProducts = async (req, res) => {
 };
 
 //Métodos[POST]
-
-
-
 const createProduct = async (req, res) => {
     const { body, file } = req
-
     const newObject = {
-            title: body.title,
-            image: file.filename, 
-            category: body.category,
-            price: body.price
+        title: body.title,
+        image: `${PUBLIC_URL}/${file.filename}`, 
+        category: body.category,
+        price: body.price
     }
-
     const data = await productModel.create(newObject);
     res.send({data})
 };
