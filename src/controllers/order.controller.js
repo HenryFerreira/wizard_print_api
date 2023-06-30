@@ -16,20 +16,6 @@ const getOrders = async (req, res) => {
 
 //Métodos[POST]
 const createOrder = async (req, res) => {
-    const { body, file } = req
-    const newObject = {
-        title: body.title,
-        imageName: file.filename, 
-        image: `${PUBLIC_URL}/${file.filename}`, 
-        amount: body.category,
-        price: body.price,
-        subTotal: body.subTotal
-    }
-    const data = await orderModel.create(newObject);
-    res.send({data})
-};
-
-const createOrderByRaw = async (req, res) => {
     const { body } = req
     const data = await orderModel.create(body);
     res.send({data})
@@ -65,7 +51,6 @@ module.exports = {
     getOrderByID,
     getOrders,
     createOrder,
-    createOrderByRaw,
     updateOrder,
     deleteOrder
 };
